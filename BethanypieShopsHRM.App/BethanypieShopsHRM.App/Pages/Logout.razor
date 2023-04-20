@@ -1,0 +1,16 @@
+﻿@page "/logout"
+@using BethanypieShopHRM.App.Services;
+
+@code {
+
+    [Inject]
+    public IUserService? UserService { get; set; }
+    [Inject]
+    public NavigationManager NavigationManager { get; set; }
+
+    protected override async void OnInitialized()
+    {
+        await UserService.Logout();
+        NavigationManager.NavigateTo("/");
+    }
+}

@@ -1,0 +1,25 @@
+﻿@page "/"
+@attribute [Authorize]
+
+<CascadingAuthenticationState>
+    <AuthorizeView>
+        <Authorized>
+            <h3>Bethany's Pie Shop HRM</h3>
+            
+            <h4>Welcome! @context.User.Identity?.Name</h4>
+            <br />
+
+            @foreach (var widgetType in Widgets)
+            {
+                <DynamicComponent Type="widgetType"></DynamicComponent>
+            }
+        </Authorized>
+        <NotAuthorized>
+            <h1>Welcome to Bethany Pie Shop</h1>
+            <p>Please <a href="/login">log in.</a> to access the Application </p>
+        </NotAuthorized>
+    </AuthorizeView>
+</CascadingAuthenticationState>
+
+
+

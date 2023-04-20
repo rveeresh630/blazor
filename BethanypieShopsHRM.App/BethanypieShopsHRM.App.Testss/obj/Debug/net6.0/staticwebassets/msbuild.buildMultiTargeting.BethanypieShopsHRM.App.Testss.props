@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\BethanypieShopsHRM.App.Testss.props" />
+</Project>

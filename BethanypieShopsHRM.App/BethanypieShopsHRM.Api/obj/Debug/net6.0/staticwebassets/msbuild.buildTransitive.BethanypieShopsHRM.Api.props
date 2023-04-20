@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\BethanypieShopsHRM.Api.props" />
+</Project>

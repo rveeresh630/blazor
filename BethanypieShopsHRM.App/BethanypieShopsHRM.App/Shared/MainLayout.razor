@@ -1,0 +1,36 @@
+﻿@inherits LayoutComponentBase
+
+    <div class="page">
+        <div class="sidebar">
+            <NavMenu />
+        </div>
+
+        <main>
+            <div class="top-row px-4">
+                <div class="nav-link">
+                    <CascadingAuthenticationState>
+                        <AuthorizeView>
+                            <Authorized>                     
+                                <NavLink href="logout" Match="NavLinkMatch.All">
+                                    Logout
+                                </NavLink>
+                            </Authorized>
+                            <NotAuthorized>
+                                <NavLink href="login" Match="NavLinkMatch.All">
+                                    Login
+                                </NavLink>
+                            </NotAuthorized>
+                        </AuthorizeView>
+                    </CascadingAuthenticationState>
+                </div>
+            </div>
+
+            <article class="content px-4">
+                @Body
+            </article>
+        </main>
+    </div>
+
+
+
+

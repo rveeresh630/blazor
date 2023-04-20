@@ -1,0 +1,50 @@
+﻿<div class="top-row ps-3 navbar navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="">BethanyPieShops HRM</a>
+        <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+</div>
+
+<div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
+    <nav class="flex-column">
+        <ProfilePicture>
+            <img class=" rounded-circle" style="max-width:80%;padding-left: 10%" src="images/profilePicture.jpg" />
+        </ProfilePicture>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                <span class="oi oi-home" aria-hidden="true"></span> Home
+            </NavLink>
+        </div>
+        <CascadingAuthenticationState>
+            <AuthorizeView>
+                <Authorized>
+                    <div class="nav-item px-3">
+                        <NavLink class="nav-link" href="employeeoverview">
+                            <span class="oi oi-plus" aria-hidden="true"></span> EmployeeOverView
+                        </NavLink>
+                    </div>
+       
+                    <div class="nav-item px-3">
+                        <NavLink class="nav-link" href="employeeedit">
+                            <span class="oi oi-person" aria-hidden="true"></span> Add New Employee
+                        </NavLink>
+                    </div>
+                </Authorized>
+            </AuthorizeView>
+        </CascadingAuthenticationState>
+    </nav>
+</div>
+
+@code {
+    private bool collapseNavMenu = true;
+
+    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+ 
+}
